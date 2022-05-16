@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% with messages = get_flashed_messages() %}<!-- Layout template that records message at end of request -->
+            {% if messages %}
+            <ul class = flashes>
+                {% for message in messages %} 
+                    <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %} 
+    {% endwith %}
+
+    <h1>Welcome {{name}}</h1> <!-- Printing Welcome message, href and list of cities.-->
+    <a href = "https://www.google.com">not google</a>
+    <p>
+    <ul style="list-style-type:circle">
+    {%for names in city_names%}
+        <li>{{names}}</li>
+    {%endfor%}
+    </ul>
+    </p>
+
+    <form action = '/' method = 'POST'> <!-- Form for 'City Name' at the bottom as well as submit button-->
+        <label>City Name
+            <br><input id = 'cityForm' type = 'text' name = 'cityForm'></br>
+        </label>
+        <p><input type = 'submit' id = 'submit' value = "Submit"></p>
+    </form>
+    </body>
+</html>
